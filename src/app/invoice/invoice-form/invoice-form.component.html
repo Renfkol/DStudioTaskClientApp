@@ -1,0 +1,29 @@
+<div class="container col-9 border rounded-3">
+  <form class="form-group" [formGroup]="formInvoice" >
+    <div class="form-group">
+      <label class="form-label">Id</label>
+      <input type="number" class="form-control" formControlName="id"  placeholder="id...">
+      <div class="alert alert-danger"
+           *ngIf="formInvoice.controls['id'].invalid && formInvoice.controls['id'].touched">
+        Incorrect Id
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Sum</label>
+      <input type="number" class="form-control" formControlName="sum" placeholder="sum..." >
+      <div class="alert alert-danger"
+           *ngIf="formInvoice.controls['sum'].invalid && formInvoice.controls['sum'].touched">
+        Incorrect amount
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Payment Method</label>
+      <mat-select formControlName="paymentMethod">
+        <mat-option value="1">Credit Card</mat-option>
+        <mat-option value="2">Debit Card</mat-option>
+        <mat-option value="3">Electronic Сheck</mat-option>
+      </mat-select>
+    </div>
+  </form>
+</div>

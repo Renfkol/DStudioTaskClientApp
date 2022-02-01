@@ -1,0 +1,47 @@
+<div class="row form-group d-grid gap-2 col-3 mx-auto">
+  <a mat-flat-button color="warn"  routerLink="/create" target="_blank">Create</a>
+</div>
+
+<div>
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+    <ng-container matColumnDef="createUpdateDateTime">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Date Time </th>
+      <td mat-cell *matCellDef="let element"> {{element.createUpdateDateTime | date:'short'}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="processingStatus">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+      <td mat-cell *matCellDef="let element"> {{element.processingStatus|processingStatusPipe}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="sum">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Sum </th>
+      <td mat-cell *matCellDef="let element"> {{element.sum}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="paymentMethod" >
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Payment Method </th>
+      <td mat-cell *matCellDef="let element"> {{element.paymentMethod |paymentMethodPipe}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <div class="btn-group " role="group" >
+      <div *ngIf="mainPageModel.pageInfoModel?.hasPreviousPage">
+        <button type="button" mat-flat-button color="primary" (click)="goPage(-1)" target="_blank">Previous</button>
+      </div>
+      <button type="button" mat-flat-button target="_blank"> Current Page:{{mainPageModel?.pageInfoModel?.pageNumber}}</button>
+      <div *ngIf="mainPageModel.pageInfoModel?.hasNextPage">
+        <button type="button" mat-flat-button color="primary" (click)="goPage(+1)" target="_blank">Next</button>
+      </div>
+  </div>
+</div>
+
