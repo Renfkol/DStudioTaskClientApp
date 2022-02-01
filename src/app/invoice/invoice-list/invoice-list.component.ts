@@ -6,11 +6,15 @@ import {ActivatedRoute, Params, Router} from "@angular/router";
 import {Invoice} from "../../model/invoice";
 import {MatTableDataSource} from "@angular/material/table";
 
+//View модель, получаемая с сервера, хранит в себе список Invoice'ов со страницы и информацию о пагинации
 export class  MainPageModel{
   public invoices: Invoice[]=[]
   public pageInfoModel?: PageInfo
 }
 
+//Комнонент для отображения таблицы с пагинацией
+//Поскольку пагинацию реализовал на сервере,
+//то здесь только реализация таблицы и сортировки через Angular Materials
 @Component({
   selector: 'app-invoice-list',
   templateUrl: './invoice-list.component.html',

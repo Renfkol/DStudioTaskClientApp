@@ -1,6 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import {PaymentMethod} from "../../model/invoice";
 
+//Пайп для отображения Способа Оплаты в таблице на главной странице
+
 @Pipe({
   name: 'paymentMethodPipe'
 })

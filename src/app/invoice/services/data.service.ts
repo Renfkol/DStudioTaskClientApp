@@ -13,7 +13,7 @@ export class DataService {
   }
 
   getPage(page?:number) {
-    console.log("Try to get page "+ page);
+    //console.log("Try to get page "+ page);
     if(page!=undefined)
       return this.http.get(this.url+'/GetList/'+page);
     else return this.http.get(this.url+'/GetList/1')

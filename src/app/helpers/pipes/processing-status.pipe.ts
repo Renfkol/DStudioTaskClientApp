@@ -1,6 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import {ProcessingStatus} from "../../model/invoice";
 
+
+//Пайп для отображения Статуса Счета в таблице на главной странице
+
 @Pipe({
   name: 'processingStatusPipe'
 })
